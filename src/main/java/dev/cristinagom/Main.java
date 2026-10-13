@@ -10,6 +10,7 @@ import dev.cristinagom.utils.Utils;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -39,12 +40,32 @@ public class Main {
         productos.forEach(producto -> System.out.println(producto.getNombre()));
 
         // 3. Nombre de los productos cuyo stock es menor que 10
+        System.out.println("Productos con un stock menor a 10: ");
+        productos.stream().filter(producto -> producto.getUnidadesEnStock() < 10)
+                .map(Producto::getNombre)
+                .forEach(System.out::println); 
 
         // 4. Obtén el número de proveedores existentes
+        long numeroProveedores = productos.stream()
+                .map(Producto::getIdProveedor)
+                .distinct()
+                .count();
+        System.out.println("Numero de proveedores totales: " + numeroProveedores);
 
         // 5. Por cada proveedor, obtener el número de productos
+        Map<Integer, Integer> numeroProductosProveedor = productos.stream()
+                .collect(Collectors.groupingBy(Producto::getIdProveedor, Collectors.summingInt(producto -> 1)));
+
+        System.out.println("Número de productos por proveedor:");
+        numeroProductosProveedor.forEach((proveedor, cantidad) ->
+                System.out.println("Proveedor: " + proveedor + " - Número de productos: " + cantidad));
 
         // 6. Obtener el producto más caro
+        String productoMasCaro = productos.stream()
+                .max(Comparator.comparing(Producto::getPrecioUnidad))
+                .map(Producto::getNombre)
+                .orElse("No hay productos");
+        System.out.println("Producto mas caro: " + productoMasCaro);
 
         // 7. Obtener los proveedores que tengan más de 5 productos
         System.out.println();
@@ -58,9 +79,26 @@ public class Main {
                 System.out.println("Proveedor: " + proveedor + " - Número de productos: " + productosProveedor.size()));
 
         // 8. Obtener el proveedor con la mayor cantidad de productos
+        System.out.println("Proveedor con mayor cantidad de productos: ");
+        Optional<Map.Entry<Integer, Long>> proveedorConMayorCantidad = productos.stream()
+                .collect(Collectors.groupingBy(Producto::getIdProveedor, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue());
+
+        System.out.println(
+                proveedorConMayorCantidad
+                        .map(entry -> "Proveedor: " + entry.getKey() + ", Número de productos: " + entry.getValue())
+                        .orElse("No hay productos")
+        );
 
         // 9. Categorías y número de productos por categoría
+        Map<Integer, Long> numeroProductosPorCategoria = productos.stream()
+                .collect(Collectors.groupingBy(Producto::getIdCategoria, Collectors.counting()));
 
+        System.out.println("Número de productos por categoría:");
+        numeroProductosPorCategoria.forEach((categoria, cantidad) ->
+                System.out.println("Categoría: " + categoria + " - Número de productos: " + cantidad));
 
         service.exportToFile("data/products_back.csv");
     }

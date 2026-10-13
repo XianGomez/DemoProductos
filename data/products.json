@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nombre": "Café molido",
+    "idProveedor": 101,
+    "idCategoria": 5,
+    "cantidadPorUnidad": "500g paquete",
+    "precioUnidad": 4.75,
+    "unidadesEnStock": 120,
+    "unidadesEnPedido": 30,
+    "nivelDeReabastecimiento": 20,
+    "descontinuado": false
+  },
+  {
+    "id": 2,
+    "nombre": "Té verde",
+    "idProveedor": 102,
+    "idCategoria": 5,
+    "cantidadPorUnidad": "20 bolsas",
+    "precioUnidad": 3.50,
+    "unidadesEnStock": 80,
+    "unidadesEnPedido": 10,
+    "nivelDeReabastecimiento": 15,
+    "descontinuado": false
+  },
+  {
+    "id": 3,
+    "nombre": "Galletas de avena",
+    "idProveedor": 103,
+    "idCategoria": 7,
+    "cantidadPorUnidad": "12 unidades",
+    "precioUnidad": 2.20,
+    "unidadesEnStock": 200,
+    "unidadesEnPedido": 50,
+    "nivelDeReabastecimiento": 25,
+    "descontinuado": true
+  }
+]

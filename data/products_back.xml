@@ -1,0 +1,50 @@
+<productos>
+    <producto>
+        <id>1</id>
+        <nombre>Café molido</nombre>
+        <idProveedor>101</idProveedor>
+        <idCategoria>5</idCategoria>
+        <cantidadPorUnidad>500g paquete</cantidadPorUnidad>
+        <precioUnidad>4.75</precioUnidad>
+        <unidadesEnStock>120</unidadesEnStock>
+        <unidadesEnPedido>30</unidadesEnPedido>
+        <nivelDeReabastecimiento>20</nivelDeReabastecimiento>
+        <descontinuado>false</descontinuado>
+    </producto>
+    <producto>
+        <id>2</id>
+        <nombre>Té verde</nombre>
+        <idProveedor>102</idProveedor>
+        <idCategoria>5</idCategoria>
+        <cantidadPorUnidad>20 bolsas</cantidadPorUnidad>
+        <precioUnidad>3.5</precioUnidad>
+        <unidadesEnStock>80</unidadesEnStock>
+        <unidadesEnPedido>10</unidadesEnPedido>
+        <nivelDeReabastecimiento>15</nivelDeReabastecimiento>
+        <descontinuado>false</descontinuado>
+    </producto>
+    <producto>
+        <id>3</id>
+        <nombre>Galletas de avena</nombre>
+        <idProveedor>103</idProveedor>
+        <idCategoria>7</idCategoria>
+        <cantidadPorUnidad>12 unidades</cantidadPorUnidad>
+        <precioUnidad>2.2</precioUnidad>
+        <unidadesEnStock>200</unidadesEnStock>
+        <unidadesEnPedido>50</unidadesEnPedido>
+        <nivelDeReabastecimiento>25</nivelDeReabastecimiento>
+        <descontinuado>true</descontinuado>
+    </producto>
+    <producto>
+        <id>4</id>
+        <nombre>Leche de cabra</nombre>
+        <idProveedor>1</idProveedor>
+        <idCategoria>1</idCategoria>
+        <cantidadPorUnidad>N/A</cantidadPorUnidad>
+        <precioUnidad>1.0</precioUnidad>
+        <unidadesEnStock>1</unidadesEnStock>
+        <unidadesEnPedido>0</unidadesEnPedido>
+        <nivelDeReabastecimiento>0</nivelDeReabastecimiento>
+        <descontinuado>false</descontinuado>
+    </producto>
+</productos>
